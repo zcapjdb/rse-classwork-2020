@@ -28,10 +28,21 @@ def average_age(group):
 if __name__ == "__main__":
     # ...then create the group members one by one...
     jill = Person("Jill", 26, "biologist")
+    zalika = Person("Zalika", 28, "artist")
+    john = Person("John", 27, "writer")
+    nash = Person("Nash", 34, "Chef")
 
     # ...then add the connections one by one...
     # Note: this will fail from here if the person objects aren't created
     jill.add_connection(zalika, "friend")
+    jill.add_connection(john, "partner")
+
+    zalika.add_connection(jill, "friend")
+
+    john.add_connection(jill, "partner")
+
+    nash.add_connection(john, "cousin")
+    john.add_connection(zalika, "landlord")
 
     # ... then forget Nash and John's connection
     nash.forget(john)
